@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>attachmentAPI</action_name>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>attachmentAPI</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[// var user = 'admin';
+// var pwd = 'admin';
+// var instance = 'dev29268';
+// var fromTablename = 'NeedIt';
+// var fromIncidentNumber = 'NI002002';
+
+// var toTablename = 'incident';
+// var toIncidentNumber = <incident number to attach file to>;
+/***
+try {
+    /****
+    var sysRequest = new sn_ws.RESTMessageV2();
+    sysRequest.setRequestHeader("Accept", "Application/json");
+    sysRequest.setRequestHeader("Content-Type", "Application/json");
+    sysRequest.setBasicAuth(user, pwd);
+    sysRequest.setHttpMethod('get');
+    sysRequest.setEndpoint('https://' + instance + '.service-now.com/api/now/table/NeedIt?sysparm_query=number%3D' + fromIncidentNumber + 'sysparm_limit=1');
+    var sysResponse = sysRequest.execute();
+    var sysHttpResponseStatus = sysResponse.getStatusCode();
+	***/
+
+var requestBody = "";
+gs.info('Hello1');
+var sysRequest = new sn_ws.RESTMessageV2();
+gs.info('Hello2');
+sysRequest.setHttpMethod('get');
+sysRequest.setEndpoint("https://dev29268.service-now.com/api/now/table/x_58872_needit_needit?sysparm_query=number%3DNI002002&sysparm_limit=1");
+gs.info('Hello3');
+sysRequest.setRequestHeader("Accept", "Application/json");
+gs.info('Hello4');
+sysRequest.setRequestHeader("Content-Type", "Application/json");
+gs.info('Hello5');
+//Eg. UserName="admin", Password="admin" for this code sample.
+var user = 'admin';
+var password = 'admin';
+sysRequest.setBasicAuth(user, password);
+gs.info('Hello6');
+var sysResponse = sysRequest.execute();
+gs.info('Hello7');
+var sysHttpResponseStatus = sysResponse.getStatusCode();
+gs.info('Hello8');
+gs.info(sysHttpResponseStatus);
+//     if (sysHttpResponseStatus == 200) {
+//         var jsonObj = JSON.parse(sysResponse.getBody());
+//         gs.info(jsonObj);
+//         var toTableRecordSysId = jsonObj.result[0].sys_id;
+
+//         var grFromTable = new GlideRecord(fromTablename);
+//         grFromTable.addQuery('number', fromIncidentNumber);
+//         grFromTable.query();
+//         while(grFromTable.next()) {
+//             try {
+//                 var fromIncidentSysId = grFromTable.sys_id;
+
+//                 grFromAtt = new GlideRecord('sys_attachment');
+//                 grFromAtt.addQuery('table_name', fromTablename);
+//                 grFromAtt.addQuery('table_sys_id', fromIncidentSysId);
+//                 grFromAtt.query();
+//                 while(grFromAtt.next()) {
+//                     var filename = grFromAtt.file_name;
+//                     var fromIncidentSysId = grFromAtt.sys_id;
+//                     var contentType = grFromAtt.content_type;
+
+//                     var request = new sn_ws.RESTMessageV2();
+//                     request.setRequestHeader("Accept","Application/json");
+//                     request.setRequestHeader("Content-Type", contentType);
+//                     request.setBasicAuth(user, pwd);
+//                     request.setHttpMethod('post');
+//                     request.setEndpoint('https://' + instance + '.service-now.com/api/now/attachment/file?table_name=' + toTablename + '&table_sys_id=' + toTableRecordSysId + '&file_name=' + filename);
+//                     request.setRequestBodyFromAttachment(fromIncidentSysId);
+//                     var response = request.execute();
+//                     var httpResponseStatus = response.getStatusCode();
+
+//                     gs.info("http response status_code: " + httpResponseStatus);
+//                 }       
+//             }
+//             catch (ex) {
+//                 gs.info(ex.message() + ' ' + response.getErrorMessage());
+//             }
+//         }
+//     }
+// } catch (ex) {
+//     gs.info(ex.message() + ' ' + sysResponse.getErrorMessage());
+// }]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-05-23 11:46:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>29b63d032f630110cc57aa5df699b6aa</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>attachmentAPI</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ui_action_29b63d032f630110cc57aa5df699b6aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-05-23 13:32:27</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>
